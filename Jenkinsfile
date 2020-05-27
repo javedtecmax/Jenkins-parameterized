@@ -11,5 +11,10 @@ pipeline {
                           sh 'ls'
                       }
                 }
+                stage("parameterized"){
+                    steps {
+                        build job: 'attach-paramaterized', parameters: [[$class: 'StringParameterValue', name: 'jenkins_variable', value: "add this parameter"]]
+                    }
+                }
            }
 }
